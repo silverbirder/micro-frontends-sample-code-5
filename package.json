@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/Silver-birder/micro-frontends-sample-code-5#readme",
   "devDependencies": {
-    "@cloudflare/wrangler": "^1.11.0"
+    "@cloudflare/wrangler": "^1.11.0",
+    "lerna": "^3.22.1"
   }
 }

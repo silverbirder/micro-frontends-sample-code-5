@@ -1,0 +1,22 @@
+{
+  "name": "micro-frontends-sample-code-5",
+  "version": "1.0.0",
+  "description": "TODO",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Silver-birder/micro-frontends-sample-code-5.git"
+  },
+  "author": "silverbirder",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Silver-birder/micro-frontends-sample-code-5/issues"
+  },
+  "homepage": "https://github.com/Silver-birder/micro-frontends-sample-code-5#readme",
+  "devDependencies": {
+    "@cloudflare/wrangler": "^1.11.0"
+  }
+}

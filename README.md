@@ -1,4 +1,4 @@
 # micro-frontends-sample-code-5
 
-* ESI + CDN
-* HTTP3 
+* CDN
+  * Cloudflare (Edge worker)

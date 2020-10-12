@@ -4,8 +4,7 @@ module.exports = {
     entry: './src/client.ts',
     output: {
         path: __dirname + '/public',
-        filename: 'bundle.js',
-        libraryTarget: 'amd'
+        filename: 'bundle.js'
     },
     resolve: {
         extensions: ['.ts', '.js'],

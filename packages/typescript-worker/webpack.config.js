@@ -24,4 +24,9 @@ module.exports = {
       },
     ],
   },
+  plugins: [
+        new webpack.DefinePlugin({
+            'process.env.SEARCH_PUBLIC_URL': JSON.stringify(process.env.SEARCH_PUBLIC_URL),
+        }),
+    ]
 }

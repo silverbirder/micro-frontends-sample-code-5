@@ -38,10 +38,13 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
             template: './src/index.html',
-            publicPath: process.env.SEARCH_PUBLIC_URL || 'auto'
+            publicPath: `${process.env.SEARCH_PUBLIC_URL}/public` || 'auto'
         }),
         new ScriptExtHtmlWebpackPlugin({
             defaultAttribute: 'defer'
-        })
+        }),
+        new webpack.DefinePlugin({
+            'process.env.SEARCH_PUBLIC_URL': JSON.stringify(process.env.SEARCH_PUBLIC_URL),
+        }),
     ]
 }

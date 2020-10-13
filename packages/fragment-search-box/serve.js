@@ -12,10 +12,14 @@ const podlet = new Podlet({
 podlet.js([
     {value: '/public/bundle.js'},
 ]);
+
 app.use('/public/', express.static('public'));
 app.use(podlet.middleware());
 app.get(podlet.manifest(), (req, res) => {
     res.status(200).send(podlet);
+});
+app.get(podlet.content(), (req, res) => {
+    res.sendFile(__dirname + '/public/index.html');
 });
 
 app.listen(port);

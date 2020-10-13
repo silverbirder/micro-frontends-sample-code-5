@@ -1,4 +1,6 @@
 var webpack = require('webpack')
+var HtmlWebpackPlugin = require('html-webpack-plugin');
+var ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
 
 module.exports = {
     entry: './src/client.ts',
@@ -33,5 +35,14 @@ module.exports = {
                 exclude: /node_modules/,
             },
         ],
-    }
+    },
+    plugins: [
+        new HtmlWebpackPlugin({
+            template: './src/index.html',
+            publicPath: process.env.SEARCH_PUBLIC_URL || 'auto'
+        }),
+        new ScriptExtHtmlWebpackPlugin({
+            defaultAttribute: 'defer'
+        })
+    ]
 }

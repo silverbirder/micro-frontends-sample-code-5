@@ -12,6 +12,6 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "wrangler": "0.0.2"
+    "@cloudflare/wrangler": "^1.11.0"
   }
 }

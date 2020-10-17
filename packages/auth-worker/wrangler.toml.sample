@@ -1,0 +1,13 @@
+name = "auth-worker"
+type = "webpack"
+account_id = ""
+workers_dev = true
+route = ""
+zone_id = ""
+
+kv-namespaces = [
+  { binding = "AUTH_STORE", id = "" }
+]
+
+[site]
+bucket = "./public"

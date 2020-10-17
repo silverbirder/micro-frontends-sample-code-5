@@ -1,5 +1,5 @@
-name = "rust-worker"
-type = "rust"
+name = "router-worker"
+type = "webpack"
 account_id = ""
 workers_dev = true
 route = ""

@@ -1,9 +1,9 @@
 {
-  "name": "workers-graphql-server",
+  "name": "team-search-api-worker",
   "private": true,
   "description": "🔥Lightning-fast, globally distributed Apollo GraphQL server, deployed at the edge using Cloudflare Workers",
   "version": "1.1.1",
-  "author": "Kristian Freeman <kristian@bytesized.xyz>",
+  "author": "author",
   "dependencies": {
     "apollo-datasource-rest": "^0.3.2",
     "apollo-server-cloudflare": "^2.16.1",

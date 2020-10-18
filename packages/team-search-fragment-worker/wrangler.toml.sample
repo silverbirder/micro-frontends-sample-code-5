@@ -1,4 +1,4 @@
-name = "typescript-worker"
+name = "team-search-fragment-worker"
 type = "webpack"
 account_id = ""
 workers_dev = true

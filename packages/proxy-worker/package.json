@@ -1,5 +1,5 @@
 {
-    "name": "proxy-workers",
+    "name": "proxy-worker",
     "version": "1.0.0",
     "description": "package for creating workers templates",
     "main": "index.js",

@@ -1,5 +1,5 @@
 {
-  "name": "team-search-fragment-workers",
+  "name": "team-search-fragment-worker",
   "version": "1.0.0",
   "description": "",
   "main": "src/client.ts",

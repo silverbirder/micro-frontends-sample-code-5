@@ -1,43 +1,38 @@
-const Router = require('./router')
+import {workerMap} from "./workerMap";
 
-/**
- * Example of how router can be used in an application
- *  */
+const Router = require('./router');
+
 addEventListener('fetch', event => {
     event.respondWith(handleRequest(event.request))
-})
-
-function handler(request) {
-    const init = {
-        headers: {'content-type': 'application/json'},
-    }
-    const body = JSON.stringify({some: 'json'})
-    return new Response(body, init)
-}
+});
 
 async function handleRequest(request) {
-    const r = new Router()
+    const r = new Router();
     r.get('/manifest.json', async () => {
-        const r = await fetch(`http://localhost:8000/manifest.json`, {
-            headers: {
-                "content-type": "application/json;charset=UTF-8",
-            }
+        const mapResponse = await Promise.all(Object.keys(workerMap).map((name) => {
+            const url = workerMap[name];
+            return new Promise(async (resolve) => {
+                const manifestResponse = await fetch(`${url}/manifest.json`);
+                const manifestJson = await manifestResponse.json();
+                const responseMap = {};
+                Object.keys(manifestJson).forEach((manifestKey) => {
+                    responseMap[manifestKey] = `${url}${manifestJson[manifestKey]}`;
+                });
+                resolve([responseMap, name]);
+            });
+        }));
+        const responseJson = {};
+        mapResponse.forEach((map) => {
+            const [manifest, name] = map;
+            responseJson[name] = manifest;
         });
-        const j = await r.json();
-        const teamSearchJson = {};
-        Object.keys(j).forEach((key) => {
-            teamSearchJson[key] = `http://localhost:8000${j[key]}`;
-        });
-        const json = JSON.stringify({
-            'team-search-fragment': teamSearchJson
-        }, null, 2);
+        const json = JSON.stringify(responseJson, null, 2);
         return new Response(json, {
             headers: {
                 "content-type": "application/json;charset=UTF-8"
             }
         });
-    })
+    });
 
-    const resp = await r.route(request)
-    return resp
+    return (await r.route(request));
 }

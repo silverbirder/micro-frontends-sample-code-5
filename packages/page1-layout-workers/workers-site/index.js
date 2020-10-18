@@ -1,19 +1,39 @@
 import {getAssetFromKV} from "@cloudflare/kv-asset-handler";
 
 async function handleRequest(event) {
-  const res = await getAssetFromKV(event);
-  return rewriter.transform(res)
+    const url = new URL(event.request.url);
+    const pathName = url.pathname;
+    if (pathName === "/favicon.ico") {
+        return new Response('')
+    } else {
+        const res = await getAssetFromKV(event);
+        return reWriter.transform(res)
+    }
 }
 
-class TeamRewriter {
-  element(element) {
-    element.replace("<div>hey</div>", {html: true});
-  }
+class TeamReWriter {
+    async element(element) {
+        const proxyResponse = await fetch(`${PROXY_URL}/manifest.json`);
+        const proxyJsonResponse = await proxyResponse.json();
+        const {html, js, css} = proxyJsonResponse[element.tagName];
+
+        let results = [];
+        if (html !== undefined) {
+            results.push((await (await fetch(html)).text()));
+        }
+        if (js !== undefined) {
+            results.push(`<script src="${js}" defer></script>`);
+        }
+        if (css !== undefined) {
+            results.push(`<link rel="preload" href="${css}" as="style">`);
+        }
+        element.replace(results.join(''), {html: true})
+    }
 }
 
-const rewriter = new HTMLRewriter()
-    .on("team-search-fragment", new TeamRewriter());
+const reWriter = new HTMLRewriter()
+    .on("team-search-fragment", new TeamReWriter());
 
 addEventListener("fetch", event => {
-  event.respondWith(handleRequest(event))
+    event.respondWith(handleRequest(event))
 });

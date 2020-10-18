@@ -4,3 +4,5 @@ account_id = ""
 workers_dev = true
 route = ""
 zone_id = ""
+
+vars = {TEAM_SEARCH_FRAGMENT_URL = ""}

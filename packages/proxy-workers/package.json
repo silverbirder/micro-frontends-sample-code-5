@@ -1,18 +1,20 @@
 {
-    "name": "router-worker",
+    "name": "proxy-workers",
     "version": "1.0.0",
     "description": "package for creating workers templates",
     "main": "index.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
-        "format": "prettier --write '**/*.{js,css,json,md}'"
+        "format": "prettier --write '**/*.{js,css,json,md}'",
+        "wrangler:dev": "wrangler dev --port 7000"
     },
-    "author": "shibamoto <silverbirder@gmail.com>",
+    "author": "author",
     "license": "ISC",
     "devDependencies": {
         "prettier": "^1.17.0"
     },
     "dependencies": {
-        "serverless-cloudflare-workers": "^1.2.0"
+        "serverless-cloudflare-workers": "^1.2.0",
+        "@cloudflare/wrangler": "^1.11.0"
     }
 }

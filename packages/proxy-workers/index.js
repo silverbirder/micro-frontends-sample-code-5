@@ -9,21 +9,34 @@ addEventListener('fetch', event => {
 
 function handler(request) {
     const init = {
-        headers: { 'content-type': 'application/json' },
+        headers: {'content-type': 'application/json'},
     }
-    const body = JSON.stringify({ some: 'json' })
+    const body = JSON.stringify({some: 'json'})
     return new Response(body, init)
 }
 
 async function handleRequest(request) {
     const r = new Router()
-    // Replace with the appropriate paths and handlers
-    r.get('.*/bar', () => new Response('responding for /bar'))
-    r.get('.*/foo', request => handler(request))
-    r.post('.*/foo.*', request => handler(request))
-    r.get('/demos/router/foo', request => fetch(request)) // return the response from the origin
-
-    r.get('/', () => new Response('Hello worker!')) // return a default message for the root route
+    r.get('/manifest.json', async () => {
+        const r = await fetch(`http://localhost:8000/manifest.json`, {
+            headers: {
+                "content-type": "application/json;charset=UTF-8",
+            }
+        });
+        const j = await r.json();
+        const teamSearchJson = {};
+        Object.keys(j).forEach((key) => {
+            teamSearchJson[key] = `http://localhost:8000${j[key]}`;
+        });
+        const json = JSON.stringify({
+            'team-search-fragment': teamSearchJson
+        }, null, 2);
+        return new Response(json, {
+            headers: {
+                "content-type": "application/json;charset=UTF-8"
+            }
+        });
+    })
 
     const resp = await r.route(request)
     return resp

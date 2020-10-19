@@ -8,10 +8,10 @@ async function handleEvent(event) {
     const url = new URL(event.request.url);
     const pathname = url.pathname;
     try {
-        if (pathname === '/team-search-fragment/manifest.json') {
+        if (pathname === '/manifest.json') {
             const json = JSON.stringify({
-                html: `/team-search-fragment/index.html`,
-                js: `/team-search-fragment/bundle.js`
+                html: `/index.html`,
+                js: `/bundle.js`
             });
             return new Response(json, {
                 headers: {

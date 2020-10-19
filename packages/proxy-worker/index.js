@@ -8,14 +8,14 @@ addEventListener('fetch', event => {
 
 async function handleRequest(request) {
     const r = new Router();
-    r.get('/proxy/manifest.json', async () => {
+    r.get('/manifest.json', async () => {
         const mapResponse = await Promise.all(Object.keys(workerMap).map((name) => {
             const url = workerMap[name];
             return new Promise(async (resolve) => {
                 const manifestResponse = await fetch(`${url}/manifest.json`, {
                     headers: {
                         "content-type": "application/json;charset=UTF-8",
-                    },
+                    }
                 });
                 const manifestJson = await manifestResponse.json();
                 const responseMap = {};

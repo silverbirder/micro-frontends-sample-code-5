@@ -1,7 +1,11 @@
 name = "search-page-worker"
-type = "rust"
+type = "webpack"
 account_id = ""
-workers_dev = true
 route = ""
 zone_id = ""
+
 vars = {PROXY_URL = ""}
+
+[site]
+bucket = "./public"
+entry-point = "workers-site"

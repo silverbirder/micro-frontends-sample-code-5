@@ -1,7 +1,9 @@
+account_id = ""
 name = "team-search-fragment-worker"
 type = "webpack"
-account_id = ""
-workers_dev = true
 route = ""
 zone_id = ""
-webpack_config = "webpack.config.js"
+
+[site]
+bucket = "./public"
+entry-point = "workers-site"

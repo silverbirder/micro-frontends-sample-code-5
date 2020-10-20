@@ -1,4 +1,4 @@
-name = "page1-layout-worker"
+name = "search-page-worker"
 type = "rust"
 account_id = ""
 workers_dev = true

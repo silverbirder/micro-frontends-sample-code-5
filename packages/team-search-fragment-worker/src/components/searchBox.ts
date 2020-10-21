@@ -1,4 +1,19 @@
-import {LitElement, html, customElement, css} from 'lit-element';
+import {LitElement, html, customElement, css, eventOptions} from 'lit-element';
+import gql from "graphql-tag";
+import {ApolloClient} from "apollo-client";
+import {InMemoryCache} from "apollo-cache-inmemory";
+import {from} from "apollo-link";
+import {HttpLink} from "apollo-link-http";
+
+const http = new HttpLink({
+    uri: ""
+});
+const link = from([http]);
+
+const client = new ApolloClient({
+    link,
+    cache: new InMemoryCache()
+});
 
 @customElement('search-box')
 export class SearchBox extends LitElement {
@@ -14,9 +29,22 @@ export class SearchBox extends LitElement {
     render() {
         return html`
          <div>
-         <div>search box</div>
+            <input type="text" id="keyword"><button @click="${this._onClick}">Search</button>
+            <div>search box</div>
          </div>
     `;
+    }
+
+    @eventOptions({capture: true})
+    private async _onClick() {
+        const {data} = await client.query({
+            query: gql`{
+                      pokemon(id:1) {
+                        name
+                      }
+                    }`
+        });
+        console.log(data);
     }
 }
 

@@ -3,7 +3,11 @@ name = "team-search-fragment-worker"
 type = "webpack"
 route = ""
 zone_id = ""
+vars = {TEAM_SEARCH_API_URL = ""}
 
 [site]
 bucket = "./public"
 entry-point = "workers-site"
+
+[env.production]
+vars = {TEAM_SEARCH_API_URL = ""}

@@ -11,7 +11,7 @@ async function handleRequest(event) {
     }
 }
 
-class TeamReWriter {
+class TeamSearchReWriter {
     async element(element) {
         const proxyResponse = await fetch(`${PROXY_URL}/manifest.json`);
         const proxyJsonResponse = await proxyResponse.json();
@@ -32,7 +32,7 @@ class TeamReWriter {
 }
 
 const reWriter = new HTMLRewriter()
-    .on("team-search-fragment", new TeamReWriter());
+    .on("team-search-fragment", new TeamSearchReWriter());
 
 addEventListener("fetch", event => {
     event.respondWith(handleRequest(event))

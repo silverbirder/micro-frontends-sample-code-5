@@ -10,7 +10,7 @@
     "test:clean": "rimraf ./transpiled/src ./transpiled/test",
     "test": "npm run test:clean && npm run transpile && mocha --require source-map-support/register --recursive transpiled/test",
     "transpile": "tsc --project ./test",
-    "wrangler:dev": "wrangler dev --port 8000"
+    "wrangler:dev": "wrangler dev --port 7300"
   },
   "author": "author",
   "license": "MIT OR Apache-2.0",

@@ -4,11 +4,9 @@
   "description": "TODO",
   "main": "index.js",
   "scripts": {
-    "serve": "concurrently \"npm run lt:7000 \" \"npm run lt:7200\" \"npm run lt:7300\" \"npm run lt:7400\"",
-    "lt:7000": "lt --port 7000 --subdomain silverbirder7000",
-    "lt:7200": "lt --port 7200 --subdomain silverbirder7200",
-    "lt:7300": "lt --port 7300 --subdomain silverbirder7300",
-    "lt:7400": "lt --port 7400 --subdomain silverbirder7400"
+    "install": "lerna bootstrap",
+    "lt": "lerna run --parallel lt",
+    "wrangler:dev": "lerna run --parallel wrangler:dev"
   },
   "repository": {
     "type": "git",
@@ -22,8 +20,6 @@
   "homepage": "https://github.com/Silver-birder/micro-frontends-sample-code-5#readme",
   "devDependencies": {
     "@cloudflare/wrangler": "^1.11.0",
-    "concurrently": "^5.3.0",
-    "lerna": "^3.22.1",
-    "localtunnel": "^2.0.0"
+    "lerna": "^3.22.1"
   }
 }

@@ -10,7 +10,8 @@
     "test:clean": "rimraf ./transpiled/src ./transpiled/test",
     "test": "npm run test:clean && npm run transpile && mocha --require source-map-support/register --recursive transpiled/test",
     "transpile": "tsc --project ./test",
-    "wrangler:dev": "wrangler dev --port 7300"
+    "wrangler:dev": "wrangler dev --port 7300",
+    "lt": "lt --port 7300 --subdomain silverbirder7300"
   },
   "author": "author",
   "license": "MIT OR Apache-2.0",
@@ -28,6 +29,7 @@
     "chai": "^4.2.0",
     "core-js": "^3.6.5",
     "html-webpack-plugin": "^4.5.0",
+    "localtunnel": "^2.0.0",
     "mocha": "^8.0.1",
     "prettier": "^2.0.5",
     "rimraf": "^3.0.2",

@@ -3,7 +3,13 @@
 * CDN
   * Cloudflare (Edge worker)
 
-## localhost
+## localhost development
 
-/etc/hosts
-127.0.0.1 => <your domain>
+```
+$ npm install
+$ npm run bootstrap
+$ npm run lt
+$ npm run wrangler:dev
+```
+
+※ Accessing the domain output by lt only for the first time.

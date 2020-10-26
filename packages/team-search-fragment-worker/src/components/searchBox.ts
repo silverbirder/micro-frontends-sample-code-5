@@ -6,7 +6,7 @@ import {from} from "apollo-link";
 import {HttpLink} from "apollo-link-http";
 
 const http = new HttpLink({
-    uri: ""
+    uri: `${process.env.TEAM_SEARCH_API_URL}`
 });
 const link = from([http]);
 

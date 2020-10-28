@@ -1,8 +1,9 @@
 name = "router-worker"
 type = "webpack"
 account_id = ""
-workers_dev = true
 route = ""
 zone_id = ""
+vars = {PAGE1_LAYOUT_URL = ""}
 
+[env.production]
 vars = {PAGE1_LAYOUT_URL = ""}

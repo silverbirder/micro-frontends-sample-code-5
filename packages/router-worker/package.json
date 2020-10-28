@@ -6,7 +6,8 @@
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "format": "prettier --write '**/*.{js,css,json,md}'",
-        "wrangler:dev": "wrangler dev --port 9100"
+        "wrangler:dev": "wrangler dev --port 7100",
+        "lt": "lt --port 7100 --subdomain silverbirder7100"
     },
     "author": "author",
     "license": "ISC",
@@ -15,6 +16,7 @@
     },
     "dependencies": {
         "serverless-cloudflare-workers": "^1.2.0",
-        "@cloudflare/wrangler": "^1.11.0"
+        "@cloudflare/wrangler": "^1.11.0",
+        "localtunnel": "^2.0.0"
     }
 }

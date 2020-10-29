@@ -1,5 +1,5 @@
 import {getAssetFromKV} from "@cloudflare/kv-asset-handler";
-
+// import {HTMLRewriter} from "@cloudflare/workers-types";
 async function handleRequest(event) {
     const url = new URL(event.request.url);
     const pathName = url.pathname;

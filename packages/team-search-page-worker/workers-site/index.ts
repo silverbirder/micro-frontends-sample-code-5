@@ -11,10 +11,18 @@ async function handleRequest(event) {
     }
 }
 
-class TeamSearchReWriter {
+class TeamRewriter {
     async element(element) {
-        const proxyResponse = await fetch(`${PROXY_URL}/manifest.json`);
-        const proxyJsonResponse = await proxyResponse.json();
+        const cacheUrl = new URL(`${PROXY_URL}/manifest.json`);
+        const cacheKey = new Request(cacheUrl.toString());
+        //@ts-ignore
+        const cache = caches.default;
+        let response = await cache.match(cacheKey);
+        if (!response) {
+            response = await fetch(`${PROXY_URL}/manifest.json`);
+            await cache.put(cacheKey, response.clone());
+        }
+        const proxyJsonResponse = await response.json();
         const {html, js, css} = proxyJsonResponse[element.tagName];
 
         let results = [];
@@ -32,7 +40,8 @@ class TeamSearchReWriter {
 }
 
 const reWriter = new HTMLRewriter()
-    .on("team-search-fragment", new TeamSearchReWriter());
+    .on("team-search-fragment", new TeamRewriter())
+    .on("team-auth-fragment", new TeamRewriter())
 
 addEventListener("fetch", event => {
     event.respondWith(handleRequest(event))

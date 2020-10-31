@@ -2,7 +2,7 @@ import { getAssetFromKV } from '@cloudflare/kv-asset-handler'
 // import { authorize, logout, handleRedirect } from './auth0'
 // import { hydrateState } from './edge_state'
 
-addEventListener('fetch', event => event.respondWith(handleRequest(event)))
+// addEventListener('fetch', event => event.respondWith(handleRequest(event)))
 
 // see the readme for more info on what these config options do!
 const config = {
@@ -12,8 +12,36 @@ const config = {
   originless: true,
 }
 
-async function handleRequest(event) {
-  return await getAssetFromKV(event);
+addEventListener("fetch", (event) => {
+  //@ts-ignore
+  event.respondWith(handleEvent(event));
+});
+
+async function handleEvent(event) {
+  const url = new URL(event.request.url);
+  const pathname = url.pathname;
+  try {
+    if (pathname === '/manifest.json') {
+      const json = JSON.stringify({
+        html: `/index.html`,
+        js: `/bundle.js`
+      });
+      return new Response(json, {
+        headers: {
+          "content-type": "application/json;charset=UTF-8"
+        }
+      });
+    } else {
+      return await getAssetFromKV(event);
+    }
+  } catch (e) {
+    return new Response(`"${pathname}" not found`, {
+      status: 404,
+      statusText: "not found"
+    });
+  }
+}
+
   // try {
   //   let request = event.request
   //
@@ -70,4 +98,3 @@ async function handleRequest(event) {
   // } catch (err) {
   //   return new Response(err.toString())
   // }
-}

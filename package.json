@@ -6,6 +6,7 @@
   "scripts": {
     "install": "lerna bootstrap",
     "lt": "lerna run --parallel lt",
+    "build": "lerna run --parallel build",
     "wrangler:dev": "lerna run --parallel wrangler:dev"
   },
   "repository": {

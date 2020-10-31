@@ -5,5 +5,4 @@ workers-site/worker
 wrangler.toml
 build
 public
-.env
-.env.production
+.env*

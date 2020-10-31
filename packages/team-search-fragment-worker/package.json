@@ -6,6 +6,7 @@
   "scripts": {
     "build": "webpack --config webpack.config.client.js",
     "watch": "NODE_ENV=development webpack -w --config webpack.config.client.js",
+    "watch:partial": "IS_PARTIAL=true npm run watch",
     "dev": "NODE_ENV=development npm run build",
     "format": "prettier --write '**/*.{ts,js,css,json,md}'",
     "test:clean": "rimraf ./transpiled/src ./transpiled/test",
@@ -30,6 +31,7 @@
     "babel-loader": "^8.1.0",
     "chai": "^4.2.0",
     "core-js": "^3.6.5",
+    "dotenv": "^8.2.0",
     "html-webpack-plugin": "^4.5.0",
     "localtunnel": "^2.0.0",
     "mocha": "^8.0.1",

@@ -1,8 +1,8 @@
-const path = require('path')
-const webpack = require('webpack')
+const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-
-const mode = process.env.NODE_ENV || 'production'
+const mode = process.env.NODE_ENV || 'production';
+const env = mode === 'production' ? '.env.production' : '.env';
+require('dotenv').config({path: __dirname + `/${env}`});
 
 module.exports = {
     mode,
@@ -41,7 +41,7 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
             template: './src/index.html',
-            inject: mode !== 'production',
+            inject: process.env.IS_PARTIAL === 'true',
         }),
         new webpack.DefinePlugin({
             'process.env.TEAM_SEARCH_API_URL': JSON.stringify(process.env.TEAM_SEARCH_API_URL)

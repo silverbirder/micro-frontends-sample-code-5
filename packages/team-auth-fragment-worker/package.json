@@ -6,6 +6,7 @@
   "scripts": {
     "build": "webpack --config webpack.config.client.js",
     "watch": "NODE_ENV=development webpack -w --config webpack.config.client.js",
+    "watch:partial": "IS_PARTIAL=true npm run watch",
     "dev": "NODE_ENV=development npm run build",
     "format": "prettier --write '**/*.{ts,js,css,json,md}'",
     "test:clean": "rimraf ./transpiled/src ./transpiled/test",

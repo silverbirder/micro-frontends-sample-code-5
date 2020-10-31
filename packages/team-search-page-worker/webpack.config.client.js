@@ -41,10 +41,7 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
             template: './src/index.html',
-            inject: mode !== 'production',
-        }),
-        new webpack.DefinePlugin({
-            'process.env.TEAM_SEARCH_API_URL': JSON.stringify(process.env.TEAM_SEARCH_API_URL)
+            inject: false,
         })
     ]
 }

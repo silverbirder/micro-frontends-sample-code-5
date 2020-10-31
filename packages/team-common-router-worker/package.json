@@ -1,5 +1,5 @@
 {
-    "name": "router-worker",
+    "name": "team-common-router-worker",
     "version": "1.0.0",
     "description": "package for creating workers templates",
     "main": "index.js",
@@ -7,7 +7,8 @@
         "test": "echo \"Error: no test specified\" && exit 1",
         "format": "prettier --write '**/*.{js,css,json,md}'",
         "wrangler:dev": "wrangler dev --port 7100",
-        "lt": "lt --port 7100 --subdomain silverbirder7100"
+        "lt": "lt --port 7100 --subdomain silverbirder7100",
+        "publish": "wrangler publish --env production"
     },
     "author": "author",
     "license": "ISC",

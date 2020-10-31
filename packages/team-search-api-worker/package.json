@@ -6,7 +6,8 @@
   "author": "author",
   "scripts": {
     "wrangler:dev": "wrangler dev --port 7400",
-    "lt": "lt --port 7400 --subdomain silverbirder7400"
+    "lt": "lt --port 7400 --subdomain silverbirder7400",
+    "publish": "wrangler publish"
   },
   "dependencies": {
     "apollo-datasource-rest": "^0.3.2",

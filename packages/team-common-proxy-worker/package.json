@@ -1,5 +1,5 @@
 {
-    "name": "proxy-worker",
+    "name": "team-common-proxy-worker",
     "version": "1.0.0",
     "description": "package for creating workers templates",
     "main": "index.js",
@@ -7,7 +7,8 @@
         "test": "echo \"Error: no test specified\" && exit 1",
         "format": "prettier --write '**/*.{js,css,json,md}'",
         "wrangler:dev": "wrangler dev --port 7000",
-        "lt": "lt --port 7000 --subdomain silverbirder7000"
+        "lt": "lt --port 7000 --subdomain silverbirder7000",
+        "publish": "wrangler publish --env production"
     },
     "author": "author",
     "license": "ISC",

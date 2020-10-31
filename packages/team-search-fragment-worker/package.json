@@ -13,7 +13,8 @@
     "test": "npm run test:clean && npm run transpile && mocha --require source-map-support/register --recursive transpiled/test",
     "transpile": "tsc --project ./test",
     "wrangler:dev": "wrangler dev --port 7300",
-    "lt": "lt --port 7300 --subdomain silverbirder7300"
+    "lt": "lt --port 7300 --subdomain silverbirder7300",
+    "publish": "wrangler publish"
   },
   "author": "author",
   "license": "MIT OR Apache-2.0",

@@ -1,11 +1,11 @@
-name = "auth-worker"
+name = ""
 type = "webpack"
 account_id = ""
 route = ""
 zone_id = ""
 
 kv-namespaces = [
-  { binding = "AUTH_STORE", id = "4ca0f79ea96643fbb195b3d403377250", "preview_id" = "e3ac4d1946c04d90946ba45c4e4d4a1a" }
+  { binding = "AUTH_STORE", id = "", "preview_id" = "" }
 ]
 
 [site]

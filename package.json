@@ -7,7 +7,8 @@
     "install": "lerna bootstrap",
     "lt": "lerna run --parallel lt",
     "build": "lerna run --parallel build",
-    "wrangler:dev": "lerna run --parallel wrangler:dev"
+    "wrangler:dev": "lerna run --parallel wrangler:dev",
+    "publish": "lerna run --parallel publish"
   },
   "repository": {
     "type": "git",

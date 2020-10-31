@@ -1,4 +1,4 @@
-name = "team-search-api-worker"
+name = ""
 type = "webpack"
 zone_id = ""
 account_id = ""

@@ -1,4 +1,4 @@
-name = "router-worker"
+name = ""
 type = "webpack"
 account_id = ""
 route = ""

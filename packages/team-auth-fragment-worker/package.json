@@ -13,7 +13,8 @@
     "test": "npm run test:clean && npm run transpile && mocha --require source-map-support/register --recursive transpiled/test",
     "transpile": "tsc --project ./test",
     "wrangler:dev": "wrangler dev --port 7500",
-    "lt": "lt --port 7500 --subdomain silverbirder7500"
+    "lt": "lt --port 7500 --subdomain silverbirder7500",
+    "publish": "wrangler publish"
   },
   "dependencies": {
     "@cloudflare/wrangler": "^1.11.0",

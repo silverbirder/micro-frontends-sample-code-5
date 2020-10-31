@@ -1,4 +1,4 @@
-name = "proxy_worker"
+name = ""
 type = "webpack"
 account_id = ""
 route = ""

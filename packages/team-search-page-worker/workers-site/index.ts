@@ -1,6 +1,6 @@
 import {getAssetFromKV} from "@cloudflare/kv-asset-handler";
-// import {HTMLRewriter} from "@cloudflare/workers-types";
-async function handleRequest(event) {
+
+async function handleRequest(event: FetchEvent) {
     const url = new URL(event.request.url);
     const pathName = url.pathname;
     if (pathName === "/favicon.ico") {
@@ -12,7 +12,7 @@ async function handleRequest(event) {
 }
 
 class TeamRewriter {
-    async element(element) {
+    async element(element: any) {
         const cacheUrl = new URL(`${PROXY_URL}/manifest.json`);
         const cacheKey = new Request(cacheUrl.toString());
         //@ts-ignore
@@ -41,8 +41,10 @@ class TeamRewriter {
 
 const reWriter = new HTMLRewriter()
     .on("team-search-fragment", new TeamRewriter())
-    .on("team-auth-fragment", new TeamRewriter())
+    .on("team-auth-fragment", new TeamRewriter());
 
 addEventListener("fetch", event => {
     event.respondWith(handleRequest(event))
 });
+
+declare var PROXY_URL: String;

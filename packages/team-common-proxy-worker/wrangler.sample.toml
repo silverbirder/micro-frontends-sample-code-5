@@ -4,6 +4,7 @@ account_id = ""
 route = ""
 zone_id = ""
 vars = {TEAM_SEARCH_FRAGMENT_URL = ""}
+webpack_config = "webpack.config.js"
 
 [env.production]
 vars = {TEAM_SEARCH_FRAGMENT_URL = ""}

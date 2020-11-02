@@ -4,6 +4,7 @@ account_id = ""
 route = ""
 zone_id = ""
 vars = {PROXY_URL = ""}
+webpack_config = "webpack.config.js"
 
 [site]
 bucket = "./public"

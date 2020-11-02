@@ -2,7 +2,7 @@
   "name": "team-auth-fragment-worker",
   "version": "1.0.0",
   "description": "",
-  "main": "workers-site/index.js",
+  "main": "workers-site/index.ts",
   "scripts": {
     "build": "webpack --config webpack.config.client.js",
     "watch": "NODE_ENV=development webpack -w --config webpack.config.client.js",
@@ -18,7 +18,8 @@
   },
   "dependencies": {
     "@cloudflare/wrangler": "^1.11.0",
-    "lit-element": "^2.4.0"
+    "lit-element": "^2.4.0",
+    "cookie": "^0.4.1"
   },
   "devDependencies": {
     "@babel/core": "^7.12.3",

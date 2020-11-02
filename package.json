@@ -7,6 +7,7 @@
     "install": "lerna bootstrap",
     "lt": "lerna run --parallel lt",
     "build": "lerna run --parallel build",
+    "watch": "lerna run --parallel watch",
     "wrangler:dev": "lerna run --parallel wrangler:dev",
     "publish": "lerna run --parallel publish"
   },

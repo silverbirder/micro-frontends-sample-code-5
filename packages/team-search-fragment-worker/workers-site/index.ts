@@ -4,7 +4,7 @@ addEventListener("fetch", (event) => {
     event.respondWith(handleEvent(event));
 });
 
-async function handleEvent(event: FetchEvent) {
+export async function handleEvent(event: FetchEvent) {
     const url = new URL(event.request.url);
     const pathname = url.pathname;
     try {

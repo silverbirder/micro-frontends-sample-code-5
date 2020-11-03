@@ -14,12 +14,8 @@
     "types": ["@cloudflare/workers-types", "node"]
   },
   "include": [
-    "./src/*.ts",
     "./workers-site/*.ts",
-    "./test/*.ts",
-    "./src/**/*.ts",
     "./workers-site/**/*.ts",
-    "./test/**/*.ts",
     "./node_modules/@cloudflare/workers-types/index.d.ts"
   ],
   "exclude": ["node_modules/", "dist/"]

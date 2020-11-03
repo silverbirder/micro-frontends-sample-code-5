@@ -9,9 +9,9 @@
     "watch:partial": "IS_PARTIAL=true npm run watch",
     "dev": "NODE_ENV=development npm run build",
     "format": "prettier --write '**/*.{ts,js,css,json,md}'",
-    "test:clean": "rimraf ./transpiled/src ./transpiled/test",
-    "test": "npm run test:clean && npm run transpile && mocha --require source-map-support/register --recursive transpiled/*.js",
-    "transpile": "tsc --project ./test",
+    "test:clean": "rimraf ./transpiled/",
+    "test:server": "npm run test:clean && npm run transpile:server && mocha --require source-map-support/register --recursive transpiled/worker/*.js",
+    "transpile:server": "tsc --project ./test/worker/",
     "wrangler:dev": "wrangler dev --port 7300",
     "lt": "lt --port 7300 --subdomain silverbirder7300",
     "publish": "wrangler publish"

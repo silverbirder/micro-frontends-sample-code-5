@@ -9,7 +9,8 @@
     "esModuleInterop": true,
     "types": ["mocha"]
   },
-  "include": ["./*.ts",
+  "include": [
+    "./*.ts",
     "../../node_modules/@cloudflare/workers-types/index.d.ts"
   ]
 }

@@ -1,19 +1,19 @@
 import {LitElement, html, customElement, css, eventOptions} from 'lit-element';
-import gql from "graphql-tag";
-import {ApolloClient} from "apollo-client";
-import {InMemoryCache} from "apollo-cache-inmemory";
-import {from} from "apollo-link";
-import {HttpLink} from "apollo-link-http";
+// import gql from "graphql-tag";
+// import ApolloClient from "apollo-client";
+// import * as ApolloCacheInmemory from "apollo-cache-inmemory";
+// import * as ApolloLink from "apollo-link";
+// import * as ApolloLinkHttp from "apollo-link-http";
 
-const http = new HttpLink({
-    uri: `${process.env.TEAM_SEARCH_API_URL}`
-});
-const link = from([http]);
-
-const client = new ApolloClient({
-    link,
-    cache: new InMemoryCache()
-});
+// const http = new ApolloLinkHttp.HttpLink({
+//     uri: `${process.env.TEAM_SEARCH_API_URL}`
+// });
+// const link = ApolloLink.from([http]);
+//
+// const client = new ApolloClient({
+//     link,
+//     cache: new ApolloCacheInmemory.InMemoryCache()
+// });
 
 @customElement('search-box')
 export class SearchBox extends LitElement {
@@ -37,14 +37,14 @@ export class SearchBox extends LitElement {
 
     @eventOptions({capture: true})
     private async _onClick() {
-        const {data} = await client.query({
-            query: gql`{
-                      pokemon(id:1) {
-                        name
-                      }
-                    }`
-        });
-        console.log(data);
+        // const {data} = await client.query({
+        //     query: gql`{
+        //               pokemon(id:1) {
+        //                 name
+        //               }
+        //             }`
+        // });
+        // console.log(data);
     }
 }
 

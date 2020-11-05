@@ -1,5 +1,5 @@
 import {SearchBox} from './components/searchBox'
 
 export default {
-    SearchBox: new SearchBox()
+    SearchBox: new SearchBox(null, null)
 }

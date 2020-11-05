@@ -1,9 +1,9 @@
 {
   "compilerOptions": {
-    "types": ["mocha"],
+    "types": ["mocha", "chai"],
     "target": "es2017",
     "module": "es2015",
-    "lib": ["es2017", "dom", "dom.iterable"],
+    "lib": ["es2017", "dom", "dom.iterable", "ESNext.AsyncIterable"],
     "declaration": true,
     "declarationMap": true,
     "sourceMap": true,

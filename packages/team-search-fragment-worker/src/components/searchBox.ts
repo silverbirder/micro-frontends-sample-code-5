@@ -15,6 +15,10 @@ import {LitElement, html, customElement, css, eventOptions} from 'lit-element';
 //     cache: new ApolloCacheInmemory.InMemoryCache()
 // });
 
+import {ApolloQuery} from '@apollo-elements/lit-apollo';
+
+console.log(ApolloQuery);
+
 @customElement('search-box')
 export class SearchBox extends LitElement {
     static styles = css`

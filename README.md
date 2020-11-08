@@ -48,7 +48,3 @@ $ npm run wrangler:dev
 $ npm run publish
 ```
 
-
-
-## Deploy
-

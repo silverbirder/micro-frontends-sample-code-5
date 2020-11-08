@@ -1,4 +1,5 @@
 import {LitElement, html, customElement, css, eventOptions} from 'lit-element';
+import * as CreateApolloClient from "@apollo-elements/lib/create-apollo-client";
 // import gql from "graphql-tag";
 // import ApolloClient from "apollo-client";
 // import * as ApolloCacheInmemory from "apollo-cache-inmemory";
@@ -14,6 +15,19 @@ import {LitElement, html, customElement, css, eventOptions} from 'lit-element';
 //     link,
 //     cache: new ApolloCacheInmemory.InMemoryCache()
 // });
+
+CreateApolloClient.createApolloClient({
+    uri: '/graphql',
+    typePolicies: {
+        User: {
+            fields: {
+                fullName(_, { readField }) {
+                    return `${readField('firstName')} ${readField('lastName')}`;
+                }
+            }
+        }
+    }
+});
 
 @customElement('search-box')
 export class SearchBox extends LitElement {

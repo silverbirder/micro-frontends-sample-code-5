@@ -28,6 +28,7 @@
     "@cloudflare/kv-asset-handler": "0.0.12",
     "@cloudflare/workers-types": "^2.0.0",
     "@cloudflare/wrangler": "^1.11.0",
+    "@open-wc/karma-esm": "^3.0.9",
     "@open-wc/testing": "^2.5.10",
     "@open-wc/testing-karma": "^3.3.11",
     "@types/chai": "^4.2.11",
@@ -54,6 +55,8 @@
     "webpack-cli": "^3.3.12"
   },
   "dependencies": {
+    "@apollo-elements/lib": "^3.3.0",
+    "@apollo/client": "^3.2.5",
     "apollo-cache-inmemory": "^1.6.6",
     "apollo-client": "^2.6.10",
     "apollo-link": "^1.2.14",

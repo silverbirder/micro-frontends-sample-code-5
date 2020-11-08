@@ -1,9 +1,16 @@
 {
   "compilerOptions": {
     "types": ["mocha"],
-    "target": "es2017",
+    "target": "esnext",
     "module": "es2015",
-    "lib": ["es2017", "dom", "dom.iterable"],
+    "lib": [
+      "esnext",
+      "dom",
+      "dom.iterable"
+    ],
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "strictNullChecks": false,
     "declaration": true,
     "declarationMap": true,
     "sourceMap": true,

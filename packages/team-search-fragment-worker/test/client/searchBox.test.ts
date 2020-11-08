@@ -1,9 +1,9 @@
 import {expect, fixture, html as fhtml} from '@open-wc/testing';
-import {ApolloApp} from './app';
+import {SearchBox} from '../../src/components/searchBox';
 
 describe('[lit-apollo] ApolloElement', function describeApolloElement() {
     it('is an instance of LitElement', async function () {
-        const element = await fixture<ApolloApp>(fhtml`<apollo-app></apollo-app>`);
-        expect(element).to.be.an.instanceOf(ApolloApp);
+        const element = await fixture<SearchBox>(fhtml`<search-box></search-box>`);
+        expect(element).to.be.an.instanceOf(SearchBox);
     });
 });

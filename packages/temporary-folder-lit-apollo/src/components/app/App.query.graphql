@@ -1,7 +1,0 @@
-query AppQuery {
-  location @client { pathname }
-
-  launchLatest {
-    missionName: mission_name
-  }
-}

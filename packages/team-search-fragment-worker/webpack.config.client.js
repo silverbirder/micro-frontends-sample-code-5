@@ -35,11 +35,11 @@ module.exports = {
                     {
                         loader: 'ts-loader',
                         options: {
-                            configFile: "tsconfig.client.json"
+                            configFile: "tsconfig.client.json",
+                            allowTsInNodeModules: true
                         }
                     }
-                ],
-                exclude: /node_modules/,
+                ]
             },
         ],
     },

@@ -13,7 +13,7 @@ Try Edge Side integration, which is closer to Edge on the server side.
 
 ## Tech
 
-* Cloudflare Worker
+* Cloudflare Workers
 * Lit Element
 * Lerna
 

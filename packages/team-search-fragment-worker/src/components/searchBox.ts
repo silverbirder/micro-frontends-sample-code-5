@@ -38,7 +38,8 @@ export class SearchBox extends LitElement {
                 }
             }`
         });
-        console.log(data);
+        let event: CustomEvent = new CustomEvent("KEYWORD_SEARCH", data);
+        window.dispatchEvent(event);
     }
 
     @eventOptions({capture: true})

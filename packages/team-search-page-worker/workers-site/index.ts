@@ -23,7 +23,7 @@ class TeamRewriter {
             await cache.put(cacheKey, response.clone());
         }
         const proxyJsonResponse = await response.json();
-        const {html, js, css} = proxyJsonResponse[element.tagName];
+        const {html, js, css, event} = proxyJsonResponse[element.tagName];
 
         let results = [];
         if (html !== undefined) {
@@ -34,6 +34,9 @@ class TeamRewriter {
         }
         if (css !== undefined) {
             results.push(`<link rel="preload" href="${css}" as="style">`);
+        }
+        if (event !== undefined) {
+            results.push(`<script>window.addEventListener("${event}", function(data){console.log(data);})</script>`);
         }
         element.replace(results.join(''), {html: true})
     }

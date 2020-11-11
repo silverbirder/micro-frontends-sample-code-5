@@ -11,7 +11,8 @@ export async function handleEvent(event: FetchEvent) {
         if (pathname === '/manifest.json') {
             const json = JSON.stringify({
                 html: `/index.html`,
-                js: `/bundle.js`
+                js: `/bundle.js`,
+                event: ['KEYWORD_SEARCH']
             });
             return new Response(json, {
                 headers: {

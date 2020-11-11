@@ -3,7 +3,7 @@ type = "webpack"
 account_id = ""
 route = ""
 zone_id = ""
-webpack_config = "webpack.config.js"
+webpack_config = "webpack.config.server.js"
 
 kv-namespaces = [
   { binding = "AUTH_STORE", id = "", "preview_id" = "" }

@@ -1,0 +1,8 @@
+dist
+node_modules
+transpiled
+workers-site/worker
+wrangler.toml
+build
+public
+.env*

@@ -1,4 +1,4 @@
-import {LitElement, html, customElement, css, eventOptions} from 'lit-element';
+import {LitElement, html, customElement, css, eventOptions, property} from 'lit-element';
 import {createApolloClient} from "@apollo-elements/lib/create-apollo-client";
 import gql from "graphql-tag";
 
@@ -17,10 +17,13 @@ export class SearchBox extends LitElement {
     }
   `;
 
+    @property({type: String})
+    keyword: String = "";
+
     render() {
         return html`
          <div>
-            <input type="text" id="keyword"><button @click="${this._onClick}">Search</button>
+            <input type="text" id="keyword" @change="${this._onChange}" value="${this.keyword}"><button @click="${this._onClick}">Search</button>
             <div>search box</div>
          </div>
     `;
@@ -30,12 +33,17 @@ export class SearchBox extends LitElement {
     private async _onClick() {
         const {data} = await client.query({
             query: gql`{
-                pokemon(id:1) {
+                pokemon(id:${this.keyword}) {
                     name
                 }
             }`
         });
         console.log(data);
+    }
+
+    @eventOptions({capture: true})
+    private _onChange(e: Event) {
+        this.keyword = (<HTMLInputElement>e.target).value;
     }
 }
 

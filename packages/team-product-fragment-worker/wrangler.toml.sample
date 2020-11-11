@@ -3,7 +3,7 @@ account_id = ""
 type = "webpack"
 route = ""
 zone_id = ""
-1webpack_config = "webpack.config.server.js"
+webpack_config = "webpack.config.server.js"
 
 [site]
 bucket = "./public"

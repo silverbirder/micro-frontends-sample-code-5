@@ -9,7 +9,7 @@ Try Edge Side integration, which is closer to Edge on the server side.
 
 ## Architecture
 
-![overview](./overview.svg)
+TODO
 
 ## Tech
 

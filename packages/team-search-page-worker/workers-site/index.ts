@@ -7,12 +7,6 @@ async function handleRequest(event: FetchEvent) {
         return new Response('')
     } else {
         const res = await getAssetFromKV(event);
-        return reWriter.transform(res)
-    }
-}
-
-class TeamRewriter {
-    async element(element: any) {
         const cacheUrl = new URL(`${PROXY_URL}/manifest.json`);
         const cacheKey = new Request(cacheUrl.toString());
         //@ts-ignore
@@ -22,8 +16,23 @@ class TeamRewriter {
             response = await fetch(`${PROXY_URL}/manifest.json`);
             await cache.put(cacheKey, response.clone());
         }
-        const proxyJsonResponse = await response.json();
-        const {html, js, css, event} = proxyJsonResponse[element.tagName];
+        const teamRewriter = new TeamRewriter((await response.json()));
+        const reWriter = new HTMLRewriter()
+            .on("team-search-fragment", teamRewriter)
+            .on("team-auth-fragment", teamRewriter);
+        return reWriter.transform(res)
+    }
+}
+
+class TeamRewriter {
+    json: any;
+
+    constructor(json: any) {
+        this.json = json;
+    }
+
+    async element(element: any) {
+        const {html, js, css, event} = this.json[element.tagName];
 
         let results = [];
         if (html !== undefined) {
@@ -41,10 +50,6 @@ class TeamRewriter {
         element.replace(results.join(''), {html: true})
     }
 }
-
-const reWriter = new HTMLRewriter()
-    .on("team-search-fragment", new TeamRewriter())
-    .on("team-auth-fragment", new TeamRewriter());
 
 addEventListener("fetch", event => {
     event.respondWith(handleRequest(event))

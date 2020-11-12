@@ -21,8 +21,13 @@ async function handleRequest(request: any) {
                 const manifestJson = await manifestResponse.json();
                 const responseMap = {};
                 Object.keys(manifestJson).forEach((manifestKey) => {
-                    // @ts-ignore
-                    responseMap[manifestKey] = `${url}${manifestJson[manifestKey]}`;
+                    if (manifestKey === 'event') {
+                        // @ts-ignore
+                        responseMap[manifestKey] = manifestJson[manifestKey];
+                    } else {
+                        // @ts-ignore
+                        responseMap[manifestKey] = `${url}${manifestJson[manifestKey]}`;
+                    }
                 });
                 resolve([responseMap, name]);
             });

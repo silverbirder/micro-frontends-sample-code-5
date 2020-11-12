@@ -36,7 +36,7 @@ class TeamRewriter {
             results.push(`<link rel="preload" href="${css}" as="style">`);
         }
         if (event !== undefined) {
-            results.push(`<script>window.addEventListener("${event}", function(data){console.log(data);})</script>`);
+            results.push(`<script>window.addEventListener("${event}", function(e){console.log(e.detail);})</script>`);
         }
         element.replace(results.join(''), {html: true})
     }

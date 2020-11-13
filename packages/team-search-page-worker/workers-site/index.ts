@@ -44,8 +44,17 @@ class TeamRewriter {
         if (css !== undefined) {
             results.push(`<link rel="preload" href="${css}" as="style">`);
         }
-        if (event !== undefined) {
-            results.push(`<script>window.addEventListener("${event}", function(e){console.log(e.detail);})</script>`);
+        if (event !== undefined && event[0] === 'KEYWORD_SEARCH') {
+            const {js} = this.json['team-product-fragment'];
+            results.push(`
+                <script>window.addEventListener("${event}", function(e){
+                    const detail = e.detail;
+                    let productBoxEl = document.createElement("product-box");
+                    productBoxEl.append(detail['pokemon']['name']);
+                    document.querySelector('body').append(productBoxEl);
+                })</script>
+                <script src="${js}" defer></script>
+            `);
         }
         element.replace(results.join(''), {html: true})
     }

@@ -4,6 +4,18 @@
   "description": "",
   "main": "src/client.ts",
   "scripts": {
+    "build": "webpack --config webpack.config.client.js",
+    "watch": "NODE_ENV=development webpack -w --config webpack.config.client.js",
+    "watch:partial": "IS_PARTIAL=true npm run watch",
+    "dev": "NODE_ENV=development npm run build",
+    "format": "prettier --write '**/*.{ts,js,css,json,md}'",
+    "test:clean": "rimraf ./transpiled/",
+    "test:server": "npm run test:clean && npm run transpile:server && mocha --require source-map-support/register --recursive transpiled/worker/*.js",
+    "transpile:server": "tsc --project ./test/worker/",
+    "test:client": "wtr --coverage",
+    "wrangler:dev": "wrangler dev --port 7600",
+    "lt": "lt --port 7600 --subdomain silverbirder7600",
+    "publish": "wrangler publish"
   },
   "author": "author",
   "license": "MIT OR Apache-2.0",

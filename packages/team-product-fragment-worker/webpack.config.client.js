@@ -47,9 +47,6 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: './src/index.html',
             inject: process.env.IS_PARTIAL === 'true',
-        }),
-        new webpack.DefinePlugin({
-            'process.env.TEAM_SEARCH_API_URL': JSON.stringify(process.env.TEAM_SEARCH_API_URL)
         })
     ]
 }

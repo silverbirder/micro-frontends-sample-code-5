@@ -50,7 +50,7 @@ class TeamRewriter {
                 <script>window.addEventListener("${event}", function(e){
                     const detail = e.detail;
                     let productBoxEl = document.createElement("product-box");
-                    productBoxEl.append(detail['pokemon']['name']);
+                    productBoxEl.setAttribute("name", detail['pokemon']['name']);
                     document.querySelector('body').append(productBoxEl);
                 })</script>
                 <script src="${js}" defer></script>

@@ -1,9 +1,0 @@
-name = "team-inspire-fragment-worker"
-account_id = "6acf460e6e9a9ad12adc72d4a955b3b7"
-type = "javascript"
-route = "mfe-team-inspire-fragment.tk/*"
-zone_id = "0d1c194873f081818611a03bbd8b027d"
-
-[site]
-bucket = "./www/dist"
-entry-point = "workers-site"

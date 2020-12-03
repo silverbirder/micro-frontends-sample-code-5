@@ -1,0 +1,9 @@
+{
+  "name": "team-inspire-fragment-worker",
+  "version": "1.0.0",
+  "description": "A template for kick starting a Cloudflare worker project using [`wasm-pack`](https://github.com/rustwasm/wasm-pack).",
+  "main": "worker.js",
+  "keywords": [],
+  "author": "silverbirder <silverbirder@gmail.com> (https://silver-birder.github.io)",
+  "license": "ISC"
+}

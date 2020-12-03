@@ -18,5 +18,6 @@ cfg_if! {
 
 #[wasm_bindgen]
 pub fn greet() -> String {
-    "Hello, wasm-worker! by me".to_string()
+    "Hello, wasm-workers-site! by me".to_string()
 }
+
